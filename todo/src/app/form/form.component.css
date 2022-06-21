@@ -1,0 +1,37 @@
+.layout {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.947);
+}
+
+.form {
+    background-color: white;
+    border: 1px solid grey;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    width: fit-content;
+}
+
+.row {
+    width: 100%;
+    margin: 15px 0 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input, textarea {
+    margin-left: 10px;
+}
+
+h3 {
+    margin: 0;
+}
+
+.save {
+    margin: 15px 0 10px;
+}

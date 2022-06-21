@@ -1,0 +1,90 @@
+.wrapper {
+    display: flex;
+    border: 1px dashed #ccc;
+    margin: 10px 0;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.body-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+}
+
+.checkbox-wrapper {
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.column-block {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 18px;
+    margin: 0;
+}
+
+.description-block-width {
+    width: 400px;
+    max-width: 100%;
+}
+
+.progress-line {
+    width: 150px;
+    height: 20px;
+    /* background-image: linear-gradient(to right,rgb(89, 222, 120) 50%, rgb(232, 232, 232) 50%); */
+    margin: 0;
+    text-align: center;
+}
+
+.progress-number {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+.text-row-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.control-block-width {
+    width: 150px;
+}
+
+.text-data {
+    margin: 0;
+}
+
+.btn-block {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.control-btn {
+    margin-left: 10px;
+    padding: 0 5px;
+}

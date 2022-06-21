@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0;
+}
+
+.empty {
+    width: 76px;
+}
+
+.button {
+    height: 40px;
+    padding: 0 10px;
+    width: 76px;
+}

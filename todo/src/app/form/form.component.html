@@ -1,0 +1,30 @@
+<div class="layout">
+    <form class="form">
+        <div class="row">
+            <h3>Create task</h3>
+            <button (click)="closeForm()">Close</button>
+        </div>
+        <hr width="100%">
+        <div class="row">
+            <label for="">Title</label>
+            <input type="text" max="100" [(ngModel)]="currentItem.title" name="title">
+        </div>
+        <div class="row">
+            <label for="">Description</label>
+            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="currentItem.description" name="description"></textarea> 
+        </div>
+        <div class="row">
+            <label for="">Deadline</label>
+            <input type="date" [min]="getCurrentDate()" [(ngModel)]="currentItem.deadline" name="deadline">
+        </div>
+        <div class="row">
+            <label for="">Progress in %</label>
+            <input type="number" [min]="0" max="100" [(ngModel)]="currentItem.progress" name="deadline">
+        </div>
+        <div class="row">
+            <label for="">Estimated time in hours</label>
+            <input type="number" max="120" min="0" [(ngModel)]="currentItem.estimated" name="estimated">
+        </div>
+        <button class="save" (click)="handleSave()">Save</button>
+    </form>
+</div>

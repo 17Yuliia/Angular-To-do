@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div class="checkbox-wrapper">
+        <input type="checkbox" class="checkbox" [(ngModel)]="item.done">
+    </div>
+    <div class="body-wrapper">
+        <div class="column-block description-block-width">
+            <h2 class="title">{{ item.title }}</h2>
+            <p class="description">{{ item.description }}</p>
+        </div>
+        <div class="column-block">
+            <div class="text-row-block">
+                <strong>Until </strong>
+                <p class="text-data">{{ item.deadline | date: 'mediumDate' }}</p>
+            </div>
+            <div class="progress-line"
+                [ngStyle]="{
+                    'background-image': getProgressLineStyle()
+                }"
+            >
+                <p class="progress-number">{{ item.progress / 100 | percent }}</p>
+            </div>
+        </div>
+        <div class="column-block control-block-width">
+            <div class="text-row-block">
+                <strong>Estimated </strong>
+                <p class="text-data">{{ item.estimated }}h</p>
+            </div>
+            <div class="btn-block">
+                <button class="control-btn">Edit</button>
+                <button class="control-btn" (click)="deleteItem()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
