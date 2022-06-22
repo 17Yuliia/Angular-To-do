@@ -36,4 +36,3 @@ export const FORM_ITEM_DEFAULT_VALUE = {
     item: {...TASK_DEFAULT_VALUE},
     mode: Mode.add,
 }
-

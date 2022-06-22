@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Mode, IFormData, ITask, FORM_ITEM_DEFAULT_VALUE } from '../types';
+import { IFormData, ITask, FORM_ITEM_DEFAULT_VALUE } from '../types';
 
 @Injectable({
     providedIn: 'root'

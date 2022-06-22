@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TasksService } from '../data/tasks.service';
-import { IFormData, ITask, Mode, TASK_DEFAULT_VALUE } from '../types';
+import { IFormData, Mode } from '../types';
 
 @Component({
     selector: 'app-form',

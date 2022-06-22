@@ -3,7 +3,8 @@
     <app-filter 
         (orderByEvent)="setOrderProp($event)"
     ></app-filter>
-    <app-body
+    <app-body 
+        #body
         [orderProp]="orderProp"
     ></app-body>
     <app-form 

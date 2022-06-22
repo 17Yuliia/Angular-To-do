@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ITask } from '../types';
 
 @Component({
@@ -6,16 +6,13 @@ import { ITask } from '../types';
     templateUrl: './filter.component.html',
     styleUrls: ['./filter.component.css']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
     constructor() { }
-
-    ngOnInit(): void {
-    }
 
     @Output() orderByEvent = new EventEmitter<keyof ITask>();
 
     orderBy(prop: keyof ITask) {
-    return this.orderByEvent.emit(prop);
-  }
+        return this.orderByEvent.emit(prop);
+    }
 }

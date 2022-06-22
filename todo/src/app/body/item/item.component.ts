@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TasksService } from 'src/app/data/tasks.service';
 import { ITask,  Mode,  TASK_DEFAULT_VALUE} from 'src/app/types';
 
@@ -8,16 +8,14 @@ import { ITask,  Mode,  TASK_DEFAULT_VALUE} from 'src/app/types';
     styleUrls: ['./item.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
     constructor(
         private tasksService: TasksService
     ) { }
 
-    ngOnInit(): void {
-    }
-
-    @Input() item: ITask = TASK_DEFAULT_VALUE;
+    @Input()
+    item: ITask = TASK_DEFAULT_VALUE;
 
     getProgressLineStyle() {
         return `linear-gradient(to right,rgb(89, 222, 120) ${this.item.progress}%, rgb(232, 232, 232) ${this.item.progress}%)`

@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { TasksService } from '../data/tasks.service';
-import { FORM_ITEM_DEFAULT_VALUE, TASK_DEFAULT_VALUE } from '../types';
+import { FORM_ITEM_DEFAULT_VALUE } from '../types';
 
 @Component({
     selector: 'app-header',
