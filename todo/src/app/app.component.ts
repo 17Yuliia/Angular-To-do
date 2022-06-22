@@ -1,31 +1,30 @@
-import { Component } from '@angular/core';
-import { ITask, TASK_DEFAULT_VALUE } from './types';
+import { Component, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
+import { TasksService } from './data/tasks.service';
+import { ITask } from './types';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    providers: [TasksService],
 })
 
-export class AppComponent {
+export class AppComponent implements DoCheck{
     title = 'todo';
 
-    newItem: ITask;
-    itemToEdit: ITask;
-    editedItem: ITask;
-    showForm: boolean = false;
+    constructor(private tasksService: TasksService) { 
+        this.showForm = this.tasksService.getFormIsOpen();
+    }
+
+    ngDoCheck(): void {
+        this.showForm = this.tasksService.getFormIsOpen();
+    }
+
+    showForm: boolean;
     orderProp: keyof ITask = 'deadline';
 
-    openForm() {
-        this.showForm = true;
-    }
-
     closeForm() {
-        this.showForm = false;
-    }
-
-    addNewItem(item: ITask) {
-        this.newItem = item;
+        this.tasksService.setFormIsOpen(false);
     }
 
     setOrderProp(value: keyof ITask) {

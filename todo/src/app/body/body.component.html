@@ -1,7 +1,6 @@
 <div class="wrapper">
     <app-item
-        *ngFor="let item of items"
+        *ngFor="let item of items | taskFilter: orderProp"
         [item]="item"
-        (deleteEvent)="deleteItem($event)"
     ></app-item>
 </div>

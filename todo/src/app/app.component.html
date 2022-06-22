@@ -1,15 +1,13 @@
 <div class="app">
-    <app-header (openFormEvent)="openForm()"></app-header>
+    <app-header></app-header>
     <app-filter 
         (orderByEvent)="setOrderProp($event)"
     ></app-filter>
     <app-body
-        [newItem]="newItem"
         [orderProp]="orderProp"
     ></app-body>
     <app-form 
     *ngIf="showForm"
         (closeFormEvent)="closeForm()"
-        (createItemEvent)="addNewItem($event)"
     ></app-form>
 </div>

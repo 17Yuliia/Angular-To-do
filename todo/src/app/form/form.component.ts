@@ -1,48 +1,46 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { ITask, TASK_DEFAULT_VALUE } from '../types';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { TasksService } from '../data/tasks.service';
+import { IFormData, ITask, Mode, TASK_DEFAULT_VALUE } from '../types';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+    selector: 'app-form',
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+export class FormComponent implements OnInit {
 
-  ngOnInit(): void { }
+    constructor(private tasksService: TasksService) { }
 
-  ngOnDestroy(): void {
-    this.currentItem = {...TASK_DEFAULT_VALUE};
-    this.editMode = false;
-  }
-
-  currentItem: ITask = {...TASK_DEFAULT_VALUE};
-  editMode: boolean = false;
-
-  @Output() closeFormEvent = new EventEmitter<void>();
-
-  closeForm() {
-    return this.closeFormEvent.emit();
-  }
-
-  getCurrentDate() {
-    return new Date().toISOString().split("T")[0];
-  }
-
-  @Output() createItemEvent = new EventEmitter<ITask>();
-  @Output() editItemEvent = new EventEmitter<ITask>();
-
-  setChanges() {
-    if (this.editMode) {
-      return this.editItemEvent.emit({...this.currentItem});
+    ngOnInit(): void {
+        this.formData = this.tasksService.getFormData();
     }
 
-    return this.createItemEvent.emit({...this.currentItem});
-  }
+    formData: IFormData;
 
-  handleSave() {
-    this.setChanges();
-    this.closeForm();
-  }
+    @Output() closeFormEvent = new EventEmitter<void>();
+
+    closeForm() {
+        return this.closeFormEvent.emit();
+    }
+
+    getCurrentDate() {
+        return new Date().toISOString().split("T")[0];
+    }
+
+    setChanges() {
+        if (this.formData.mode === Mode.add) {
+            this.formData.item.id = Math.random();
+
+            this.tasksService.addData({...this.formData.item});
+        } else {
+            this.tasksService.editData({...this.formData.item});
+        }
+
+    }
+
+    handleSave() {
+        this.setChanges();
+        this.closeForm();
+    }
 }

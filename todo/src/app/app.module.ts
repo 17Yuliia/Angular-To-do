@@ -8,6 +8,7 @@ import { BodyComponent } from './body/body.component';
 import { FilterComponent } from './filter/filter.component';
 import { ItemComponent } from './body/item/item.component';
 import { FormComponent } from './form/form.component';
+import { TaskFilterPipe } from './task-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormComponent } from './form/form.component';
     BodyComponent,
     FilterComponent,
     ItemComponent,
-    FormComponent
+    FormComponent,
+    TaskFilterPipe
   ],
   imports: [
     BrowserModule,

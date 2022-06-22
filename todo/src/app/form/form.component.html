@@ -7,24 +7,24 @@
         <hr width="100%">
         <div class="row">
             <label for="">Title</label>
-            <input type="text" max="100" [(ngModel)]="currentItem.title" name="title">
+            <input type="text" max="100" [(ngModel)]="formData.item.title" name="title">
         </div>
         <div class="row">
             <label for="">Description</label>
-            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="currentItem.description" name="description"></textarea> 
+            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="formData.item.description" name="description"></textarea> 
         </div>
         <div class="row">
             <label for="">Deadline</label>
-            <input type="date" [min]="getCurrentDate()" [(ngModel)]="currentItem.deadline" name="deadline">
+            <input type="date" [min]="getCurrentDate()" [(ngModel)]="formData.item.deadline" name="deadline">
         </div>
         <div class="row">
             <label for="">Progress in %</label>
-            <input type="number" [min]="0" max="100" [(ngModel)]="currentItem.progress" name="deadline">
+            <input type="number" [min]="0" max="100" [(ngModel)]="formData.item.progress" name="deadline">
         </div>
         <div class="row">
             <label for="">Estimated time in hours</label>
-            <input type="number" max="120" min="0" [(ngModel)]="currentItem.estimated" name="estimated">
+            <input type="number" max="120" min="0" [(ngModel)]="formData.item.estimated" name="estimated">
         </div>
-        <button class="save" (click)="handleSave()">Save</button>
+        <button class="save" (click)="handleSave()" (keyup.enter)="handleSave()">Save</button>
     </form>
 </div>
