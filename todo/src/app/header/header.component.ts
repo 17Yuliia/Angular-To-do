@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { TasksService } from '../data/tasks.service';
-import { FORM_ITEM_DEFAULT_VALUE } from '../types';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FORM_ITEM_DEFAULT_VALUE } from 'src/data/constants';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+    styleUrls: ['./header.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
 

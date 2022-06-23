@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IFormData, ITask, FORM_ITEM_DEFAULT_VALUE } from '../types';
+import { IFormData, ITask } from 'src/data/types';
+import { FORM_ITEM_DEFAULT_VALUE } from '../data/constants'
+
 
 @Injectable({
     providedIn: 'root'

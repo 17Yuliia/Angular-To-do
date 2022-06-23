@@ -1,30 +1,70 @@
 <div class="layout">
-    <form class="form">
+    <form 
+        class="form" 
+        [formGroup]="addEditForm"
+        (ngSubmit)="handleSave()"
+    >
         <div class="row">
             <h3>Create task</h3>
             <button (click)="closeForm()">Close</button>
         </div>
         <hr width="100%">
         <div class="row">
-            <label for="">Title</label>
-            <input type="text" max="100" [(ngModel)]="formData.item.title" name="title">
+            <label>Title</label>
+            <input 
+                type="text" 
+                max="100" 
+                formControlName="title" 
+                name="title"
+                [ngClass]="{'invalid' : checkInputIsValid('title')}"
+            >
         </div>
         <div class="row">
-            <label for="">Description</label>
-            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="formData.item.description" name="description"></textarea> 
+            <label>Description</label>
+            <textarea 
+                cols="30"
+                rows="10" 
+                formControlName="description" 
+                name="description"
+                [ngClass]="{'invalid': checkInputIsValid('description')}"
+            ></textarea> 
         </div>
         <div class="row">
-            <label for="">Deadline</label>
-            <input type="date" [min]="getCurrentDate()" [(ngModel)]="formData.item.deadline" name="deadline">
+            <label>Deadline</label>
+            <input
+                type="date" 
+                [min]="getCurrentDate()"
+                formControlName="deadline"
+                name="deadline"
+                [ngClass]="{'invalid': checkInputIsValid('deadline')}"
+            >
         </div>
         <div class="row">
-            <label for="">Progress in %</label>
-            <input type="number" [min]="0" max="100" [(ngModel)]="formData.item.progress" name="deadline">
+            <label>Progress in %</label>
+            <input 
+                type="number" 
+                [min]="0" 
+                max="100" 
+                formControlName="progress" 
+                name="progress"
+                [ngClass]="{'invalid': checkInputIsValid('progress')}"
+            >
         </div>
         <div class="row">
-            <label for="">Estimated time in hours</label>
-            <input type="number" max="120" min="0" [(ngModel)]="formData.item.estimated" name="estimated">
+            <label>Estimated time in hours</label>
+            <input 
+                type="number" 
+                max="120" 
+                min="0" 
+                formControlName="estimated"
+                name="estimated"
+                [ngClass]="{'invalid': checkInputIsValid('estimated')}"
+            >
         </div>
-        <button class="save" (click)="handleSave()" (keyup.enter)="handleSave()">Save</button>
+        <button 
+            type="submit"
+            class="submit-btn" 
+            [disabled]="!addEditForm.valid"
+        >Save</button>
     </form>
 </div>

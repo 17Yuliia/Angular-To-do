@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ITask } from './types';
+import { ITask } from 'src/data/types';
 
 @Pipe({
     name: 'taskFilter',

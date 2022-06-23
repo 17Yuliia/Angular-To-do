@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, DoCheck, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { BodyComponent } from './body/body.component';
-import { TasksService } from './data/tasks.service';
-import { ITask } from './types';
+import { TasksService } from '../services/tasks.service';
+import { ITask } from 'src/data/types';
 
 @Component({
     selector: 'app-root',
@@ -12,6 +12,8 @@ import { ITask } from './types';
 
 export class AppComponent implements DoCheck{
     title = 'todo';
+    showForm: boolean;
+    orderProp: keyof ITask = 'deadline';
 
     constructor(private tasksService: TasksService, private ref: ChangeDetectorRef) { 
         this.showForm = this.tasksService.getFormIsOpen();
@@ -22,9 +24,6 @@ export class AppComponent implements DoCheck{
     ngDoCheck(): void {
         this.showForm = this.tasksService.getFormIsOpen();
     }
-
-    showForm: boolean;
-    orderProp: keyof ITask = 'deadline';
 
     closeForm() {
         this.tasksService.setFormIsOpen(false);

@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TasksService } from 'src/app/data/tasks.service';
-import { ITask,  Mode,  TASK_DEFAULT_VALUE} from 'src/app/types';
+import { TASK_DEFAULT_VALUE } from 'src/data/constants';
+import { Mode } from 'src/data/enums';
+import { ITask } from 'src/data/types';
+import { TasksService } from 'src/services/tasks.service';
 
 @Component({
     selector: 'app-item',

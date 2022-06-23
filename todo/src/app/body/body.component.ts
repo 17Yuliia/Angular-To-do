@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { TasksService } from '../data/tasks.service';
-import { ITask } from '../types';
+import { ITask } from 'src/data/types';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
     selector: 'app-body',
@@ -28,6 +28,5 @@ export class BodyComponent implements OnInit {
 
     updateTasks() {
         this.ref.detectChanges();
-        console.log('updating')
     }
 }
