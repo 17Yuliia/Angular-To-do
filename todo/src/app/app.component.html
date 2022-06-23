@@ -3,12 +3,11 @@
     <app-filter 
         (orderByEvent)="setOrderProp($event)"
     ></app-filter>
-    <app-body 
-        #body
+    <app-body
         [orderProp]="orderProp"
     ></app-body>
     <app-form 
-    *ngIf="showForm"
+        *ngIf="showForm"
         (closeFormEvent)="closeForm()"
     ></app-form>
 </div>

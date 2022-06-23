@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ITask } from '../types';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ITask } from 'src/data/types';
 
 @Component({
     selector: 'app-filter',
     templateUrl: './filter.component.html',
-    styleUrls: ['./filter.component.css']
+    styleUrls: ['./filter.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent {
 
